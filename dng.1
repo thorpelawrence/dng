@@ -1,0 +1,103 @@
+'\" t
+.\"     Title: dng
+.\"    Author: Lawrence Thorpe
+.\" Generator: Asciidoctor 2.0.17
+.\"      Date: 2022-07-16
+.\"    Manual: DNG
+.\"    Source: DNG
+.\"  Language: English
+.\"
+.TH "DNG" "1" "2022-07-16" "DNG" "DNG"
+.ie \n(.g .ds Aq \(aq
+.el       .ds Aq '
+.ss \n[.ss] 0
+.nh
+.ad l
+.de URL
+\fI\\$2\fP <\\$1>\\$3
+..
+.als MTO URL
+.if \n[.g] \{\
+.  mso www.tmac
+.  am URL
+.    ad l
+.  .
+.  am MTO
+.    ad l
+.  .
+.  LINKSTYLE blue R < >
+.\}
+.SH "NAME"
+dng \- wrapper around Adobe DNG Converter via wine to provide POSIX command line parsing
+.SH "SYNOPSIS"
+.sp
+\fBdng\fP [\fIOPTION\fP]... \fIFILE\fP...
+.SH "OPTIONS"
+.sp
+\fB\-c\fP
+.RS 4
+Output compressed DNG files (default).
+.RE
+.sp
+\fB\-u\fP
+.RS 4
+Output uncompressed DNG files.
+.RE
+.sp
+\fB\-l\fP
+.RS 4
+Output linear DNG files.
+.RE
+.sp
+\fB\-e\fP
+.RS 4
+Embed original raw file inside DNG files.
+.RE
+.sp
+\fB\-p0\fP
+.RS 4
+Set JPEG preview size to none.
+.RE
+.sp
+\fB\-p1\fP
+.RS 4
+Set JPEG preview size to medium size (default).
+.RE
+.sp
+\fB\-p2\fP
+.RS 4
+Set JPEG preview size to full size.
+.RE
+.sp
+\fB\-fl\fP
+.RS 4
+Embed fast load data.
+.RE
+.sp
+\fB\-lossy\fP
+.RS 4
+Specify lossy compression. Defaults to preserve pixel count.
+Specify a long\-side pixels or megapixels limit with optional \-side or \-count options defined below. Valid for Camera Raw compatibility 6.6 or later.
+.RE
+.sp
+\fB\-side\fP
+.RS 4
+Specify a long\-side pixels value from 32 to 65000 pixels.
+.RE
+.sp
+\fB\-count\fP
+.RS 4
+Specify a megapixels limit of 1024 (1MB) or greater.
+.RE
+.SH "RESOURCES"
+.sp
+\fBProject web site:\fP \c
+.URL "https://github.com/thorpelawrence/dng\-converter.sh" "" ""
+.SH "COPYING"
+.sp
+Copyright \(co 2022 Lawrence Thorpe.
+.br
+Free use of this software is granted under the terms of the MIT License.
+.SH "AUTHOR"
+.sp
+Lawrence Thorpe

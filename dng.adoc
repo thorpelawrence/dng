@@ -1,0 +1,59 @@
+= dng(1)
+Lawrence Thorpe
+:doctype: manpage
+:manmanual: DNG
+:mansource: DNG
+:man-linkstyle: pass:[blue R < >]
+
+== Name
+
+dng - wrapper around Adobe DNG Converter via wine to provide POSIX command line parsing
+
+== Synopsis
+
+*dng* [_OPTION_]... _FILE_...
+
+== Options
+
+*-c*::
+    Output compressed DNG files (default).
+
+*-u*::
+    Output uncompressed DNG files.
+
+*-l*::
+    Output linear DNG files.
+
+*-e*::
+    Embed original raw file inside DNG files.
+
+*-p0*::
+    Set JPEG preview size to none.
+
+*-p1*::
+    Set JPEG preview size to medium size (default).
+
+*-p2*::
+    Set JPEG preview size to full size.
+
+*-fl*::
+    Embed fast load data.
+
+*-lossy*::
+    Specify lossy compression. Defaults to preserve pixel count.
+    Specify a long-side pixels or megapixels limit with optional -side or -count options defined below. Valid for Camera Raw compatibility 6.6 or later.
+
+*-side*::
+    Specify a long-side pixels value from 32 to 65000 pixels.
+
+*-count*::
+    Specify a megapixels limit of 1024 (1MB) or greater.
+
+== Resources
+
+*Project web site:* https://github.com/thorpelawrence/dng-converter.sh
+
+== Copying
+
+Copyright (C) 2022 {author}. +
+Free use of this software is granted under the terms of the MIT License.

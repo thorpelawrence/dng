@@ -1,0 +1,157 @@
+#!/bin/bash
+
+# Adobe DNG Converter command line usage: https://web.archive.org/web/20220412005456/https://helpx.adobe.com/content/dam/help/en/photoshop/pdf/dng_commandline.pdf
+
+TEMP=$(getopt -o 'culexd:o:' --alternative --long 'p0,p1,p2,fl,lossy,side:,count:,cr2.4,cr4.1,cr4.6,cr5.4,cr6.6,cr7.1,dng1.1,dng1.3,dng1.4' -n 'dng' -- "$@")
+
+if [ $? -ne 0 ]; then
+	echo 'Terminating...' >&2
+	exit 1
+fi
+
+eval set -- "$TEMP"
+unset TEMP
+
+processed_args=()
+
+while true; do
+	case "$1" in
+		'-c')
+			processed_args+=('-c')
+			shift
+			continue
+		;;
+		'-u')
+			processed_args+=('-u')
+			shift
+			continue
+		;;
+		'-l')
+			processed_args+=('-l')
+			shift
+			continue
+		;;
+		'-e')
+			processed_args+=('-e')
+			shift
+			continue
+		;;
+		'--p0')
+			processed_args+=('-p0')
+			shift
+			continue
+		;;
+		'--p1')
+			processed_args+=('-p1')
+			shift
+			continue
+		;;
+		'--p2')
+			processed_args+=('-p2')
+			shift
+			continue
+		;;
+		'--fl')
+			processed_args+=('-fl')
+			shift
+			continue
+		;;
+		'--lossy')
+			processed_args+=('-lossy')
+			shift
+			continue
+		;;
+		'--side')
+			processed_args+=('-side' "$2")
+			shift 2
+			continue
+		;;
+		'--count')
+			processed_args+=('-count' "$2")
+			shift 2
+			continue
+		;;
+		'--cr2.4')
+			processed_args+=('-cr2.4')
+			shift
+			continue
+		;;
+		'--cr4.1')
+			processed_args+=('-cr4.1')
+			shift
+			continue
+		;;
+		'--cr4.6')
+			processed_args+=('-cr4.6')
+			shift
+			continue
+		;;
+		'--cr5.4')
+			processed_args+=('-cr5.4')
+			shift
+			continue
+		;;
+		'--cr6.6')
+			processed_args+=('-cr6.6')
+			shift
+			continue
+		;;
+		'--cr7.1')
+			processed_args+=('-cr7.1')
+			shift
+			continue
+		;;
+		'--dng1.1')
+			processed_args+=('-dng1.1')
+			shift
+			continue
+		;;
+		'--dng1.3')
+			processed_args+=('-dng1.3')
+			shift
+			continue
+		;;
+		'--dng1.4')
+			processed_args+=('-dng1.4')
+			shift
+			continue
+		;;
+		'-x')
+			processed_args+=('-x')
+			shift
+			continue
+		;;
+		'-d')
+			processed_args+=('-d' "$2")
+			shift 2
+			continue
+		;;
+		'-o')
+			processed_args+=('-o' "$2")
+			shift 2
+			continue
+		;;
+		'--')
+			shift
+			break
+		;;
+		*)
+			echo 'Internal error!' >&2
+			exit 1
+		;;
+	esac
+done
+
+WINEPREFIX="$HOME/.wine-dng"
+
+source_file_paths=()
+for arg; do
+	if [ ! -f "$arg" ]; then
+		echo "Not a valid file: '$arg'" >&2
+		echo 'Usage: dng [ options ] [ source file path(s) ]' >&2
+	fi
+	source_file_paths+=("$(WINEPREFIX="$WINEPREFIX" winepath -w "$arg" 2>/dev/null)")
+done
+
+WINEPREFIX="$WINEPREFIX" wine64 "$HOME/.wine-dng/drive_c/Program Files/Adobe/Adobe DNG Converter/Adobe DNG Converter.exe" "${processed_args[@]}" "${source_file_paths[@]}"
+

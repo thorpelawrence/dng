@@ -1,0 +1,12 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion]
+"CSDVersion"=""
+"CurrentBuild"="18362"
+"CurrentBuildNumber"="18362"
+"CurrentMajorVersionNumber"=dword:0000000a
+"CurrentMinorVersionNumber"=dword:00000000
+"CurrentVersion"="10.0"
+"ProductName"="Microsoft Windows 10"
+[HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Windows]
+"CSDVersion"=dword:00000000
