@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Adobe DNG Converter command line usage: https://web.archive.org/web/20220412005456/https://helpx.adobe.com/content/dam/help/en/photoshop/pdf/dng_commandline.pdf
+# Adobe DNG Converter command line usage: https://web.archive.org/web/20220714201445/https://helpx.adobe.com/content/dam/help/en/photoshop/pdf/dng_commandline.pdf
 
 TEMP=$(getopt -o 'culexd:o:' --alternative --long 'p0,p1,p2,fl,lossy,side:,count:,cr2.4,cr4.1,cr4.6,cr5.4,cr6.6,cr7.1,dng1.1,dng1.3,dng1.4' -n 'dng' -- "$@")
 
