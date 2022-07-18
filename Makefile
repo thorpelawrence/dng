@@ -6,6 +6,11 @@ mandir = $(datarootdir)/man
 man1dir = $(mandir)/man1
 
 DOCKER = docker
+ASCIIDOCTOR = asciidoctor
+
+ifeq (, $(shell which asciidoctor))
+	ASCIIDOCTOR = $(DOCKER) run --rm -u $(shell id -u):$(shell id -g) -v "$(PWD)":/documents asciidoctor/docker-asciidoctor asciidoctor
+endif
 
 .PHONY: wine_install
 
@@ -24,7 +29,7 @@ endif
 	rm -rf $(HOME)/.wine-dng
 
 dng.1: dng.adoc
-	$(DOCKER) run --rm -u $(shell id -u):$(shell id -g) -v "$(PWD)":/documents asciidoctor/docker-asciidoctor asciidoctor -b manpage dng.adoc
+	$(ASCIIDOCTOR) -b manpage dng.adoc
 
 install: dng.1
 	install -d $(DESTDIR)$(bindir)
