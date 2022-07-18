@@ -1,3 +1,12 @@
+prefix = /usr/local
+datarootdir = $(prefix)/share
+exec_prefix = $(prefix)
+bindir = $(exec_prefix)/bin
+mandir = $(datarootdir)/man
+man1dir = $(mandir)/man1
+
+DOCKER = docker
+
 .PHONY: wine_install
 
 build: dng.1 wine_install
@@ -15,14 +24,7 @@ endif
 	rm -rf $(HOME)/.wine-dng
 
 dng.1: dng.adoc
-	asciidoctor -b manpage dng.adoc
-
-prefix = /usr/local
-datarootdir = $(prefix)/share
-exec_prefix = $(prefix)
-bindir = $(exec_prefix)/bin
-mandir = $(datarootdir)/man
-man1dir = $(mandir)/man1
+	$(DOCKER) run --rm -u $(shell id -u):$(shell id -g) -v "$(PWD)":/documents asciidoctor/docker-asciidoctor asciidoctor -b manpage dng.adoc
 
 install: dng.1
 	install -d $(DESTDIR)$(bindir)
