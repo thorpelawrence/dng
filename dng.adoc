@@ -50,31 +50,31 @@ dng - wrapper around Adobe DNG Converter via wine to provide POSIX command line 
 *-count*::
     Specify a megapixels limit of 1024 (1MB) or greater.
 
-*--cr2.4*::
+*-cr2.4*::
     Set Camera Raw compatibility to 2.4 and later
 
-*--cr4.1*::
+*-cr4.1*::
     Set Camera Raw compatibility to 4.1 and later
 
-*--cr4.6*::
+*-cr4.6*::
     Set Camera Raw compatibility to 4.6 and later
 
-*--cr5.4*::
+*-cr5.4*::
     Set Camera Raw compatibility to 5.4 and later
 
-*--cr6.6*::
+*-cr6.6*::
     Set Camera Raw compatibility to 6.6 and later
 
-*--cr7.1*::
+*-cr7.1*::
     Set Camera Raw compatibility to 7.1 and later (default)
 
-*--dng1.1*::
+*-dng1.1*::
     Set DNG backward version to 1.1
 
-*--dng1.3*::
+*-dng1.3*::
     Set DNG backward version to 1.3
 
-*--dng1.4*::
+*-dng1.4*::
     Set DNG backward version to 1.4 (default)
 
 *-x*::
