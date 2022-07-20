@@ -81,7 +81,7 @@ dng - wrapper around Adobe DNG Converter via wine to provide POSIX command line 
     Extract original embedded raw file(s) from source file argument(s).
     Overrides options above.
 
-*-d*::
+*-d*=_OUT_FILE_::
     Output converted or extracted files to the specified directory.
     Default to the parent directory of the input file.
     In the case of multiple input files, it defaults to the parent directory of each file.
