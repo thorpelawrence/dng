@@ -6,7 +6,7 @@ mandir = $(datarootdir)/man
 man1dir = $(mandir)/man1
 
 build: dng.1
-	@shasum -c AdobeDNGConverter_x64_13_4.exe.sha1
+	@shasum -c AdobeDNGConverter_x64_13_4.exe.sha512
 	innoextract -sd build AdobeDNGConverter_x64_13_4.exe
 	sed "s:{{datarootdir}}:$(datarootdir):g" dng > build/dng
 	@find build/app -type f -exec chmod 644 "{}" \;
