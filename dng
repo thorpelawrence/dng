@@ -146,6 +146,7 @@ export WINEDEBUG=-all
 if [ ! -d "$HOME"/.dng ] ; then
    mkdir -p "$HOME"/.dng/wine
    wineboot -u
+   ln -s "{{datarootdir}}/dng/commonappdata/Adobe" "$WINEPREFIX/drive_c/ProgramData/Adobe"
 fi
 
 source_file_paths=()
@@ -157,4 +158,4 @@ for arg; do
 	source_file_paths+=("$(winepath -w "$arg" 2>/dev/null)")
 done
 
-wine64 "{{datarootdir}}/dng/Adobe DNG Converter.exe" "${processed_args[@]}" "${source_file_paths[@]}"
+wine64 "{{datarootdir}}/dng/app/Adobe DNG Converter.exe" "${processed_args[@]}" "${source_file_paths[@]}"

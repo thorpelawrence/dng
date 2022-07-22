@@ -22,7 +22,8 @@ install: build
 	install -D build/dng $(DESTDIR)$(bindir)
 	install -D dng.1 $(DESTDIR)$(man1dir)
 	install -d $(DESTDIR)/$(datarootdir)/dng
-	install "build/app/Adobe DNG Converter.exe" $(DESTDIR)$(datarootdir)/dng
+	cp -r build/app $(DESTDIR)$(datarootdir)/dng
+	cp -r build/commonappdata $(DESTDIR)$(datarootdir)/dng
 
 uninstall:
 	@rm -f $(DESTDIR)$(bindir)/dng
