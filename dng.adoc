@@ -101,4 +101,4 @@ dng - wrapper around Adobe DNG Converter via wine to provide POSIX command line 
 == Copying
 
 Copyright (C) 2022 {author}. +
-Free use of this software is granted under the terms of the MIT License.
+Free use of this software is granted under the terms of the zlib License.
