@@ -5,9 +5,13 @@ bindir = $(exec_prefix)/bin
 mandir = $(datarootdir)/man
 man1dir = $(mandir)/man1
 
+installer_exe = AdobeDNGConverter_x64_13_4.exe
+
 build: dng.1
-	@shasum -c AdobeDNGConverter_x64_13_4.exe.sha512
-	innoextract -sd build AdobeDNGConverter_x64_13_4.exe
+ifneq ($(SKIPCHECKSUM), true) # skip if package manager checks integrity
+	@shasum -c $(installer_exe).sha512
+endif
+	innoextract -sd build $(installer_exe)
 	sed "s:{{datarootdir}}:$(datarootdir):g" dng > build/dng
 	@find build/app -type f -exec chmod 644 "{}" \;
 	@find build/commonappdata -type d -exec chmod 755 "{}" \;
