@@ -5,13 +5,14 @@ Wrapper around Adobe DNG Converter to use with *nix via wine
 ## Prerequisites
 
 1. wine
-2. asciidoctor, or docker/podman
-3. make
+2. innoextract
+3. asciidoctor
+4. make
 
 ## Installation
 
 ```shell
-make # DOCKER=podman
+make
 make install
 ```
 
