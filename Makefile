@@ -21,9 +21,10 @@ dng.1: dng.adoc
 	asciidoctor -b manpage dng.adoc
 
 install: build
-	install -D -m 644 build/dng $(DESTDIR)$(bindir)
-	install -D -m 644 dng.1 $(DESTDIR)$(man1dir)
-	install -d -m755 $(DESTDIR)/$(datarootdir)/dng
+	install -d -m755 $(DESTDIR)$(bindir) $(DESTDIR)$(man1dir)
+	install -m644 build/dng $(DESTDIR)$(bindir)
+	install -m644 dng.1 $(DESTDIR)$(man1dir)
+	install -d -m755 $(DESTDIR)$(datarootdir)/dng
 	cp -r build/app $(DESTDIR)$(datarootdir)/dng
 	cp -r build/commonappdata $(DESTDIR)$(datarootdir)/dng
 	@find $(DESTDIR)/$(datarootdir)/dng -type f -exec chmod 644 "{}" \;
