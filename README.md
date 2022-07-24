@@ -11,7 +11,7 @@ Wrapper around Adobe DNG Converter to use with *nix via wine
 
 ## Installation
 
-![AUR version](https://img.shields.io/aur/version/dng?style=flat-square)
+[![AUR version](https://img.shields.io/aur/version/dng?style=flat-square)](https://aur.archlinux.org/packages/dng)
 
 
 ```shell
