@@ -13,8 +13,6 @@ ifneq ($(SKIPCHECKSUM), true) # skip if package manager checks integrity
 endif
 	innoextract -sd build $(installer_exe)
 	sed "s:{{datarootdir}}:$(datarootdir):g" dng > build/dng
-	@find build/app -type f -exec chmod 644 "{}" \;
-	@find build/commonappdata -type d -exec chmod 755 "{}" \;
 
 clean:
 	@rm -rf build
@@ -23,11 +21,13 @@ dng.1: dng.adoc
 	asciidoctor -b manpage dng.adoc
 
 install: build
-	install -D build/dng $(DESTDIR)$(bindir)
-	install -D dng.1 $(DESTDIR)$(man1dir)
-	install -d $(DESTDIR)/$(datarootdir)/dng
+	install -D -m 644 build/dng $(DESTDIR)$(bindir)
+	install -D -m 644 dng.1 $(DESTDIR)$(man1dir)
+	install -d -m755 $(DESTDIR)/$(datarootdir)/dng
 	cp -r build/app $(DESTDIR)$(datarootdir)/dng
 	cp -r build/commonappdata $(DESTDIR)$(datarootdir)/dng
+	@find $(DESTDIR)/$(datarootdir)/dng -type f -exec chmod 644 "{}" \;
+	@find $(DESTDIR)/$(datarootdir)/dng -type d -exec chmod 755 "{}" \;
 
 uninstall:
 	@rm -f $(DESTDIR)$(bindir)/dng
