@@ -94,7 +94,7 @@ dng - wrapper around Adobe DNG Converter via wine to provide POSIX command line 
 
 == Resources
 
-*Project web site:* https://github.com/thorpelawrence/dng-converter.sh
+*Project web site:* https://github.com/thorpelawrence/dng
 
 *Original documentation:* https://web.archive.org/web/20220714201445/https://helpx.adobe.com/content/dam/help/en/photoshop/pdf/dng_commandline.pdf
 

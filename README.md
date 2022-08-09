@@ -1,4 +1,4 @@
-# dng-converter.sh
+# dng
 
 Wrapper around Adobe DNG Converter to use with *nix via wine
 
