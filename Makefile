@@ -22,7 +22,7 @@ dng.1: dng.adoc
 
 install: build
 	install -d -m755 $(DESTDIR)$(bindir) $(DESTDIR)$(man1dir)
-	install -m644 build/dng $(DESTDIR)$(bindir)
+	install -m755 build/dng $(DESTDIR)$(bindir)
 	install -m644 dng.1 $(DESTDIR)$(man1dir)
 	install -d -m755 $(DESTDIR)$(datarootdir)/dng
 	cp -r build/app $(DESTDIR)$(datarootdir)/dng
