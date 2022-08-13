@@ -1,10 +1,10 @@
 # Maintainer: Lawrence Thorpe <lawrence at lawrencethorpe.uk>
 pkgname=dng
 pkgver=13.4
-pkgrel=1
+pkgrel=2
 pkgdesc="Wrapper around Adobe DNG Converter via wine to provide POSIX command line parsing"
 arch=('x86_64')
-url="https://github.com/thorpelawrence/dng
+url="https://github.com/thorpelawrence/dng"
 license=('ZLIB')
 depends=(wine)
 makedepends=(git innoextract)
@@ -15,7 +15,7 @@ sha512sums=('SKIP'
 
 build() {
     cd "$pkgname-$pkgver"
-    make SKIPCHECKSUM="true" installer_exe="$srcdir/AdobeDNGConverter_x64_13_4.exe"
+    make prefix="/usr" SKIPCHECKSUM="true" installer_exe="$srcdir/AdobeDNGConverter_x64_13_4.exe"
 }
 
 package() {
