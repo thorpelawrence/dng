@@ -33,13 +33,6 @@ fn main() {
     let mut wine_paths: Vec<String> = Vec::with_capacity(args.files.len());
 
     for file in &args.files {
-        // let path = match file.as_path().canonicalize() {
-        //     Ok(path) => path,
-        //     Err(e) => {
-        //         fatal!("{}: {}", file.display(), e);
-        //     }
-        // };
-
         let wine_path = match wine::path(&file) {
             Ok(path) => path,
             Err(e) => {
