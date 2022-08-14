@@ -8,7 +8,7 @@ pub enum JPEGPreviewSize {
 }
 
 #[derive(Parser)]
-#[clap(author, version, about, long_about = None, trailing_var_arg = true)]
+#[clap(author, version, about, long_about = None)]
 pub struct DNG {
     /// Output compressed DNG files
     #[clap(short)]
