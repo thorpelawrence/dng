@@ -4,10 +4,10 @@ Wrapper around Adobe DNG Converter to use with *nix via wine
 
 ## Prerequisites
 
-1. wine
-2. innoextract
-3. make
-4. asciidoctor (only if updating documentation)
+1. rust
+2. wine
+3. innoextract
+4. make
 
 ## Installation
 
