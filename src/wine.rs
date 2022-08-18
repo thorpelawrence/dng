@@ -1,12 +1,12 @@
-use home::home_dir;
 use log::{debug, info};
 use std::ffi::OsStr;
 use std::fs;
 use std::io::Error;
 use std::io::{self, ErrorKind};
 use std::os::unix::{self, process::CommandExt};
-use std::path::PathBuf;
+use std::path::{Path, PathBuf};
 use std::process::{Command, Stdio};
+use xdg;
 
 use crate::datarootdir::DATAROOTDIR;
 
@@ -56,9 +56,13 @@ fn init_prefix(prefix: &PathBuf) -> std::io::Result<()> {
 }
 
 fn prefix() -> Result<String, String> {
-    let prefix = &match home_dir() {
-        Some(home) => home.join(".dng").join("wine"),
-        None => return Err("failed to get home directory path".to_string()),
+    let xdg_dirs = match xdg::BaseDirectories::with_prefix("dng") {
+        Ok(x) => x,
+        Err(e) => return Err(format!("failed to get base directory: {}", e.to_string())),
+    };
+    let prefix = &match xdg_dirs.create_data_directory(Path::new("wine")) {
+        Ok(prefix) => prefix,
+        Err(e) => return Err(format!("failed to create data directory: {}", e)),
     };
 
     if !prefix.exists() {

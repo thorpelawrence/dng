@@ -13,7 +13,7 @@ edition = "2021"
 clap = { version = "3.0", features = ["derive"] }
 log = "0.4.17"
 env_logger = "0.9.0"
-home = "0.5.3"
+xdg = "2.4.1"
 
 [build-dependencies]
 clap_mangen = "0.1"
