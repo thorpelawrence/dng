@@ -58,9 +58,7 @@ pub fn from(args: &cli::DNG) -> Result<Vec<String>, String> {
     }
     if let Some(o) = &args.output {
         options.push("-o".to_string());
-        let o_winepath = wine::path(o)?;
-        debug!("-o {}", o_winepath);
-        options.push(o_winepath);
+        options.push(o.to_string_lossy().to_string());
     }
 
     Ok(options)
