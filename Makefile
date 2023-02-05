@@ -7,7 +7,7 @@ bindir = $(exec_prefix)/bin
 mandir = $(datarootdir)/man
 man1dir = $(mandir)/man1
 
-installer_exe = AdobeDNGConverter_x64_13_4.exe
+installer_exe = AdobeDNGConverter_x64_15_1_1.exe
 
 build: checksum cargo_build build/app build/commonappdata
 
