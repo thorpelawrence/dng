@@ -19,7 +19,7 @@ endif
 cargo_build:
 	install -d build
 
-	datarootdir=$(datarootdir) cargo build --frozen --release
+	datarootdir=$(datarootdir) cargo build --locked --release
 
 	cp target/release/dng build
 
