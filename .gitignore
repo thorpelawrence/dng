@@ -1,7 +1,2 @@
 AdobeDNGConverter*.exe
 build
-
-
-# Added by cargo
-
-/target
