@@ -13,7 +13,7 @@ build: checksum cargo_build build/app build/commonappdata
 
 checksum:
 ifneq ($(SKIPCHECKSUM), true) # skip if package manager checks integrity
-	@shasum -c $(installer_exe).sha512
+	@sha512sum -c $(installer_exe).sha512
 endif
 
 cargo_build:

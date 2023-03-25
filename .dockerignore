@@ -1,0 +1,7 @@
+*
+!/Makefile
+!/build.rs
+!/Cargo.toml
+!/Cargo.lock
+!/src
+!/AdobeDNGConverter*.exe.sha512
